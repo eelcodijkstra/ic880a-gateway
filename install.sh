@@ -181,7 +181,7 @@ else
 fi
 
 popd
-
+sudo sed -i -e 's/SX1301_RESET_BCM_PIN=25/SX1301_RESET_BCM_PIN=17/g' ./start.sh
 echo "Gateway EUI is: $GATEWAY_EUI"
 echo "The hostname is: $NEW_HOSTNAME"
 echo "Check gateway status here (find your EUI): http://staging.thethingsnetwork.org/gatewaystatus/"
