@@ -178,10 +178,10 @@ if [ "$REMOTE_CONFIG" = true ] ; then
     popd
 else
     echo -e "{\n\t\"gateway_conf\": {\n\t\t\"gateway_ID\": \"$GATEWAY_EUI\",\n\t\t\"servers\": [ { \"server_address\": \"router.eu.thethings.network\", \"serv_port_up\": 1700, \"serv_port_down\": 1700, \"serv_enabled\": true } ],\n\t\t\"ref_latitude\": $GATEWAY_LAT,\n\t\t\"ref_longitude\": $GATEWAY_LON,\n\t\t\"ref_altitude\": $GATEWAY_ALT,\n\t\t\"contact_email\": \"$GATEWAY_EMAIL\",\n\t\t\"description\": \"$GATEWAY_NAME\" \n\t}\n}" >$LOCAL_CONFIG_FILE
-    sudo sed -i -e '/description/ i \\t\t"led_heartbeat": 4,' local_conf.json
-    sudo sed -i -e '/description/ i \\t\t"led_down":18,' local_conf.json
-    sudo sed -i -e '/description/ i \\t\t"led_error":23,' local_conf.json
-    sudo sed -i -e '/description/ i \\t\t"led_packet":24,' local_conf.json
+    sudo sed -i -e '/description/ i \\t\t"led_heartbeat": 4,' $LOCAL_CONFIG_FILE
+    sudo sed -i -e '/description/ i \\t\t"led_down":18,' $LOCAL_CONFIG_FILE
+    sudo sed -i -e '/description/ i \\t\t"led_error":23,' $LOCAL_CONFIG_FILE
+    sudo sed -i -e '/description/ i \\t\t"led_packet":24,' $LOCAL_CONFIG_FILE
 fi
 
 popd
