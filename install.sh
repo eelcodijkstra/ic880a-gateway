@@ -15,12 +15,12 @@ echo "The Things Network Gateway installer"
 echo "Version $VERSION"
 
 # Update the gateway installer to the correct branch (defaults to master)
-# echo "Updating installer files..."
-# OLD_HEAD=$(git rev-parse HEAD)
-# git fetch
-# git checkout -q $VERSION
-# git pull
-# NEW_HEAD=$(git rev-parse HEAD)
+echo "Updating installer files..."
+OLD_HEAD=$(git rev-parse HEAD)
+git fetch
+git checkout -q $VERSION
+git pull
+NEW_HEAD=$(git rev-parse HEAD)
 
 # if [[ $OLD_HEAD != $NEW_HEAD ]]; then
 #    echo "New installer found. Restarting process..."
