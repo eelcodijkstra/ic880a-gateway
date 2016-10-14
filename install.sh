@@ -195,7 +195,7 @@ echo "Installation completed."
 # Start packet forwarder as a service
 cp ./start.sh $INSTALL_DIR/bin/
 cp ./ttn-gateway.service /lib/systemd/system/
-gcc -o kitt kitt.c -l bcm2835
+
 systemctl enable ttn-gateway.service
 
 echo "The system will reboot in 5 seconds..."
