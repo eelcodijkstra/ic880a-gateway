@@ -44,7 +44,7 @@ if [[ `grep "$GATEWAY_EUI_NIC" /proc/net/dev` == "" ]]; then
     exit 1
 fi
 
-GATEWAY_EUI=$(ip link show $GATEWAY_EUI_NIC | awk '/ether/ {print $2}' | awk -F\: '{print "FFFE"$1$2$3$4$5$6}')
+GATEWAY_EUI=$(ip link show $GATEWAY_EUI_NIC | awk '/ether/ {print $2}' | awk -F\: '{print "FB10"$1$2$3$4$5$6}')
 GATEWAY_EUI=${GATEWAY_EUI^^} # toupper
 
 echo "Detected EUI $GATEWAY_EUI from $GATEWAY_EUI_NIC"
@@ -129,9 +129,7 @@ fi
 
 cp ./libloragw/99-libftdi.rules /etc/udev/rules.d/99-libftdi.rules
 
-sed -i -e 's/CFG_SPI= native/CFG_SPI= ftdi/g' ./libloragw/library.cfg
-sed -i -e 's/PLATFORM= kerlink/PLATFORM= lorank/g' ./libloragw/library.cfg
-sed -i -e 's/ATTRS{idProduct}=="6010"/ATTRS{idProduct}=="6014"/g' /etc/udev/rules.d/99-libftdi.rules
+sed -i -e 's/PLATFORM= kerlink/PLATFORM= imst_rpi/g' ./libloragw/library.cfg
 
 make
 
