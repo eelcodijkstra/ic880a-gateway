@@ -139,7 +139,7 @@ popd
 
 # Build packet forwarder
 if [ ! -d packet_forwarder ]; then
-    git clone https://github.com/galagaking/packet_forwarder.git
+    git clone https://github.com/eelcodijkstra/packet_forwarder.git
     pushd packet_forwarder
 else
     pushd packet_forwarder
